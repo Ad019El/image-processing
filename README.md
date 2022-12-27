@@ -6,6 +6,7 @@ Udacity Full Stack JavaScript Nanodegree
 - `npm start` - start the build
 - `npm run dev` - start the server in development mode
 - `npm test` - run the tests
+- `npm run prettier` - run prettier
 
 # Build the project
 - Run `npm run build`
