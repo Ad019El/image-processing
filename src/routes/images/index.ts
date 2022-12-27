@@ -11,7 +11,7 @@ imageRouter.get("/", async (req: Request, res: Response) => {
 
   if (!filename || !width || !height) {
     return res.status(400).json({
-      message: "width & height parameter is required",
+      message: "filename, width and height query parameter is required",
     });
   }
 
@@ -22,7 +22,6 @@ imageRouter.get("/", async (req: Request, res: Response) => {
   if (!files.includes(filename)) {
     return res.status(400).send(`
       <p>Invalid filename</p>
-      
     `);
   }
 

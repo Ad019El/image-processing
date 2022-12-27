@@ -19,14 +19,13 @@ imageRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const height = Number(req.query.height);
     if (!filename || !width || !height) {
         return res.status(400).json({
-            message: "width & height parameter is required",
+            message: "filename, width and height query parameter is required",
         });
     }
     const files = (yield fs_1.promises.readdir(__dirname + "/../../../images/full")).map((file) => file.split(".")[0]);
     if (!files.includes(filename)) {
         return res.status(400).send(`
       <p>Invalid filename</p>
-      
     `);
     }
     try {

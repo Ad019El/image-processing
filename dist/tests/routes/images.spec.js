@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const fs_1 = require("fs");
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../../app"));
 const convertImage_1 = require("../../utils/convertImage");
@@ -21,22 +22,22 @@ describe("GET /images", () => {
         expect(response.status).toEqual(200);
         expect(response.headers["content-type"]).toEqual("image/jpeg");
     }));
-    it("throw an error if required query parameter given", () => __awaiter(void 0, void 0, void 0, function* () {
+    it("throw an error if required query parameter is not provided", () => __awaiter(void 0, void 0, void 0, function* () {
         const response = yield (0, supertest_1.default)(app_1.default).get("/api/images?filename=fjord&width=200");
         expect(response.status).toEqual(400);
         expect(response.body.message).toEqual("filename, width and height query parameter is required");
     }));
 });
 describe("convertImage util", () => {
-    // it("return a resized image", async () => {
-    //   const image = await convertImage({
-    //     filename: "fjord",
-    //     width: 200,
-    //     height: 200,
-    //   });
-    //   expect(existsSync(image)).toEqual(true);
-    //   expect(image).toContain("fjord-200x200.jpg");
-    // });
+    it("return a resized image", () => __awaiter(void 0, void 0, void 0, function* () {
+        const image = yield (0, convertImage_1.convertImage)({
+            filename: "fjord",
+            width: 200,
+            height: 200,
+        });
+        expect((0, fs_1.existsSync)(image)).toEqual(true);
+        expect(image).toContain("fjord-200x200.jpg");
+    }));
     it("throw an error if file does not exist", () => __awaiter(void 0, void 0, void 0, function* () {
         yield expectAsync((0, convertImage_1.convertImage)({
             filename: "notFound",

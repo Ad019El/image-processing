@@ -13,7 +13,7 @@ describe("GET /images", () => {
     expect(response.headers["content-type"]).toEqual("image/jpeg");
   });
 
-  it("throw an error if required query parameter given", async () => {
+  it("throw an error if required query parameter is not provided", async () => {
     const response = await request(app).get(
       "/api/images?filename=fjord&width=200"
     );

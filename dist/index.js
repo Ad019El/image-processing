@@ -6,5 +6,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 const PORT = 8000;
 app_1.default.listen(PORT, () => {
-    console.log(`Listening... on port ${PORT}`);
+    console.log(`Listening... at http://localhost:${PORT}/`);
 });
