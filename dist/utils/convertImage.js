@@ -17,8 +17,8 @@ const fs_1 = require("fs");
 const path_1 = __importDefault(require("path"));
 const sharp_1 = __importDefault(require("sharp"));
 const convertImage = ({ filename, width, height, }) => __awaiter(void 0, void 0, void 0, function* () {
-    const filepath = path_1.default.join(__dirname, "..", "..", "images/full", `${filename}.jpg`);
-    const savePath = path_1.default.join(__dirname, "..", "..", "images/thumb", `${filename}-${width}x${height}.jpg`);
+    const filepath = path_1.default.join(__dirname, '..', '..', 'images/full', `${filename}.jpg`);
+    const savePath = path_1.default.join(__dirname, '..', '..', 'images/thumb', `${filename}-${width}x${height}.jpg`);
     // Check if the image already exists
     if ((0, fs_1.existsSync)(savePath)) {
         return savePath;

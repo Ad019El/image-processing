@@ -1,6 +1,6 @@
-import { existsSync } from "fs";
-import path from "path";
-import sharp from "sharp";
+import { existsSync } from 'fs';
+import path from 'path';
+import sharp from 'sharp';
 
 type Input = {
   filename: string;
@@ -15,17 +15,17 @@ export const convertImage = async ({
 }: Input): Promise<string> => {
   const filepath = path.join(
     __dirname,
-    "..",
-    "..",
-    "images/full",
+    '..',
+    '..',
+    'images/full',
     `${filename}.jpg`
   );
 
   const savePath = path.join(
     __dirname,
-    "..",
-    "..",
-    "images/thumb",
+    '..',
+    '..',
+    'images/thumb',
     `${filename}-${width}x${height}.jpg`
   );
 

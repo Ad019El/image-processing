@@ -9,9 +9,8 @@
     "build": "npx tsc",
     "jasmine": "jasmine",
     "test": "npm run build && npm run jasmine",
-    "lint": "eslint \"src/**/*.ts\"",
-    "lint:fix": "eslint \"src/**/*.ts\" --fix",
-    "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write"
+    "prettier": "prettier --config .prettierrc --write src/**/*.ts ",
+    "lint": "eslint  'src/**/*.ts'  "
   },
   "author": "DAFI Adel",
   "license": "ISC",
@@ -26,6 +25,7 @@
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
     "jasmine": "^4.5.0",
     "jasmine-spec-reporter": "^7.0.0",
     "prettier": "^2.8.1",
